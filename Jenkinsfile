@@ -19,7 +19,7 @@ pipeline{
             steps{
             gitCheckout(
                 branch: "main",
-                url: "https://github.com/praveen1994dec/Java_app_3.0.git"
+                url: "https://github.com/gaurangpanchani/Java_app_3.0.git"
             )
             }
         }
@@ -63,6 +63,7 @@ pipeline{
        //         }
        //      }
        // }
+        
         stage('Maven Build : maven'){
          when { expression {  params.action == 'create' } }
             steps{
@@ -99,7 +100,7 @@ pipeline{
                }
             }
         }   
-        stage('Docker Image Cleanup : DockerHub '){
+        /*stage('Docker Image Cleanup : DockerHub '){
          when { expression {  params.action == 'create' } }
             steps{
                script{
@@ -107,6 +108,6 @@ pipeline{
                    dockerImageCleanup("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
                }
             }
-        }      
+        }  */    
     }
 }
