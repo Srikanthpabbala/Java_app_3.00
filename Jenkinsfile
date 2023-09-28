@@ -43,7 +43,7 @@ pipeline{
                }
             }
         }
-         stage('Push JAR to JFrog : python'){
+         /*stage('Push JAR to JFrog : python'){
          when { expression {  params.action == 'create' } }
             steps{
                script{
@@ -51,7 +51,7 @@ pipeline{
                    jarPush()
                }
             }
-        }
+        }*/
         
          stage('Static code analysis: Sonarqube'){
           when { expression {  params.action == 'create' } }
