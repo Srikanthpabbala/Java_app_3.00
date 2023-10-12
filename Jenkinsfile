@@ -9,7 +9,7 @@ pipeline{
         choice(name: 'action', choices: 'create\ndelete', description: 'Choose create/Destroy')
         string(name: 'ImageName', description: "name of the docker build", defaultValue: 'javapp')
         string(name: 'ImageTag', description: "tag of the docker build", defaultValue: 'v1')
-        string(name: 'DockerHubUser', description: "name of the Application", defaultValue: 'hcsodocker')
+        string(name: 'DockerHubUser', description: "name of the Application", defaultValue: 'srikanthpabbala')
     }
 
     stages{
@@ -19,7 +19,7 @@ pipeline{
             steps{
             gitCheckout(
                 branch: "main",
-                url: "https://github.com/gaurangpanchani/Java_app_3.0.git"
+                url: "https://github.com/srikanthpabbala/Java_app_3.00.git"
             )
             }
         }
@@ -79,14 +79,14 @@ pipeline{
             steps{
                script{
                    
-                   def artifactoryUrl = 'http://54.157.128.110:8082/artifactory'
+                   def artifactoryUrl = 'http://54.226.46.154:8082/artifactory'
                     def artifactoryRepo = 'example-repo-local'
                     def jarFileName = 'kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar'
                     def targetPath = "${artifactoryRepo}/"
                     sh """
                     cd /var/lib/jenkins/workspace/Assign2/target/
                     chmod +x ${jarFileName}
-                    curl -X PUT -u admin:Admin@1234 -T ${jarFileName} ${artifactoryUrl}/${targetPath}
+                    curl -X PUT -u admin:Password1 -T ${jarFileName} ${artifactoryUrl}/${targetPath}
                     """
                }
             }
