@@ -84,7 +84,7 @@ pipeline{
                     def jarFileName = 'kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar'
                     def targetPath = "${artifactoryRepo}/"
                     sh """
-                    cd /var/lib/jenkins/workspace/Assign2/target/
+                    cd /var/lib/jenkins/workspace/Test CI/target/
                     chmod +x ${jarFileName}
                     curl -X PUT -u admin:Admin@1234 -T ${jarFileName} ${artifactoryUrl}/${targetPath}
                     """
